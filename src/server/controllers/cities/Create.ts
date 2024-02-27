@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import * as yup from "yup";
 
-import { CitesProvider } from "../../database/providers/Cities";
+import { CitiesProvider } from "../../database/providers/Cities";
 import { validation } from "../../shared/middleware";
 import { ICity } from "../../database/models";
 
@@ -15,7 +15,7 @@ export const createValidation = validation((getSchema) => ({
 }));
 
 export const create = async(req: Request<{}, {}, IBodyProps>, res: Response) => {
-  const result = await CitesProvider.create(req.body);
+  const result = await CitiesProvider.create(req.body);
 
   if (result instanceof Error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
