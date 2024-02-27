@@ -6,7 +6,7 @@ export async function up (knex: Knex) {
     .schema
     .createTable(ETableNames.cities, table => {
       table.bigIncrements("id").primary().index();
-      table.string("name", 150).unique().notNullable().index();
+      table.string("name", 150).checkLength("<=", 150).notNullable().index();
 
       table.comment("Table for storing city records");
     })
