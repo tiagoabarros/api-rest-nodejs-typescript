@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { CitiesController } from "../controllers";
+import { CitiesController, PeopleController } from "../controllers";
 
 const router = Router();
 
@@ -13,5 +13,11 @@ router.post("/cidades", CitiesController.createValidation, CitiesController.crea
 router.get("/cidades/:id", CitiesController.getByIdValidation, CitiesController.getById);
 router.put("/cidades/:id", CitiesController.updateByIdValidation, CitiesController.updateById);
 router.delete("/cidades/:id", CitiesController.deleteByIdValidation, CitiesController.deleteById);
+
+router.get("/pessoas", PeopleController.getAllValidation, PeopleController.getAll);
+router.post("/pessoas", PeopleController.createValidation, PeopleController.create);
+router.get("/pessoas/:id", PeopleController.getByIdValidation, PeopleController.getById);
+router.put("/pessoas/:id", PeopleController.updateByIdValidation, PeopleController.updateById);
+router.delete("/pessoas/:id", PeopleController.deleteByIdValidation, PeopleController.deleteById);
 
 export { router };
