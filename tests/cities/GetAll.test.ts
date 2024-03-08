@@ -3,7 +3,7 @@ import { testServer } from "../jest.setup";
 
 describe("Cities Controller - Method GetAll", () => {
 
-  it("returning all city records", async () => {
+  it("Getting all city records", async () => {
     const insertResponse = await testServer.post("/cidades").send( {"name": "Maceió"} );
 
     expect(insertResponse.statusCode).toEqual(StatusCodes.CREATED);

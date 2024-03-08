@@ -17,7 +17,7 @@ describe("Cities Controller - Method Create", () => {
     expect(response.body).toHaveProperty("errors.body.name");
   });
 
-  it("Name of new city record cannot be null", async () =>{
+  it("The name of the new city record cannot be empty", async () =>{
     const response = await testServer.post("/cidades").send( {"name": ""} );
 
     expect(response.statusCode).toEqual(StatusCodes.BAD_REQUEST);
